@@ -1,15 +1,16 @@
 import React from "react";
 
-function CountryCard({ flag, name, population, region, capital }) {
+function CountryCard({ country }) {
+  const { flags, name, population, region, capital } = country;
   return (
     <div className="bg-white rounded-md shadow-md overflow-hidden w-64 cursor-pointer hover:shadow-xl transition-shadow">
       <img
-        src={flag}
-        alt={`Flag of ${name}`}
+        src={flags.svg}
+        alt={`Flag of ${name.common}`}
         className="w-full h-40 object-cover"
       />
       <div className="p-6">
-        <h2 className="font-extrabold text-lg mb-4">{name}</h2>
+        <h2 className="font-extrabold text-lg mb-4">{name.common}</h2>
         <p>
           <span className="font-semibold">Population:</span>{" "}
           {population.toLocaleString()}
