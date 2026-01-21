@@ -1,74 +1,40 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Color Palette */
-  /* Blue 900 (Dark Mode Elements): hsl(209, 23%, 22%) */
+  /* Raw color palette */
   --color-blue-900: hsl(209, 23%, 22%);
-  
-  /* Blue 950 (Dark Mode Background): hsl(207, 26%, 17%) */
   --color-blue-950: hsl(207, 26%, 17%);
-  
-  /* Grey 950 (Light Mode Text): hsl(200, 15%, 8%) */
   --color-grey-950: hsl(200, 15%, 8%);
-  
-  /* Grey 400 (Light Mode Input): hsl(0, 0%, 50%) */
   --color-grey-400: hsl(0, 0%, 50%);
-  
-  /* Grey 50 (Light Mode Background): hsl(0, 0%, 99%) */
-  --color-grey-50: hsl(0, 0%, 99%);
-  
-  /* White (Dark Mode Text & Light Mode Elements): hsl(0, 100%, 100%) */
+  --color-grey-50: hsl(0, 0%, 98%);
   --color-white: hsl(0, 100%, 100%);
 
-  /* Semantic Color Tokens - For theme-aware utilities */
-  --color-dark-elements: var(--color-blue-900);
-  --color-dark-background: var(--color-blue-950);
-  --color-light-text: var(--color-grey-950);
-  --color-light-input: var(--color-grey-400);
-  --color-light-background: var(--color-grey-50);
-
-  /* Font Family */
-  --font-family-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
-  /* Font Weights */
+  /* Font */
+  --font-family-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
   --font-weight-light: 300;
   --font-weight-semibold: 600;
   --font-weight-extrabold: 800;
-
-  /* Font Sizes - Homepage Items: 14px, Detail Page: 16px */
-  --font-size-homepage: 0.875rem;  /* 14px */
-  --font-size-detail: 1rem;        /* 16px */
 }
 
-
-/* Base Styles */
+/* Base */
 @layer base {
-  
   html {
-    font-size: 16px;
+    font-size: 14px;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     font-family: var(--font-family-sans);
-    font-weight: var(--font-weight-light);
-    font-size: var(--font-size-homepage);
+    font-weight: 300;
     line-height: 1.5;
-    color: var(--color-light-text);
-    background-color: var(--color-light-background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
-  /* Dark mode support (when applied to html/body) */
-  body.dark {
-    color: var(--color-white);
-    background-color: var(--color-dark-background);
-  }
-
-  /* Ensure proper rendering for form elements */
   input,
   button,
   select,
@@ -77,26 +43,22 @@
     font-size: inherit;
   }
 
-  /* Remove default button styles */
   button {
     background: none;
     border: none;
     cursor: pointer;
   }
 
-  /* Remove default list styles */
   ul,
   ol {
     list-style: none;
   }
 
-  /* Remove default link styles */
   a {
     text-decoration: none;
     color: inherit;
   }
 
-  /* Image responsive by default */
   img,
   picture,
   video {
@@ -104,49 +66,4 @@
     height: auto;
     display: block;
   }
-}
-
-/* Utility Classes for Theme Switching and Typography */
-@layer utilities {
-  /* Light Mode Utilities */
-  .light-mode-bg {
-    background-color: var(--color-light-background);
-  }
-
-  /* .light-mode-text {
-    color: var(--color-light-text);
-  } */
-
-  .light-mode-elements {
-    background-color: var(--color-white);
-  }
-
-  .light-mode-input {
-    color: var(--color-light-input);
-  }
-
-  /* Dark Mode Utilities */
-  .dark-mode-bg {
-    background-color: var(--color-dark-background);
-  }
-
-  /* .dark-mode-text {
-    color: var(--color-white);
-  } */
-
-  .dark-mode-elements {
-    background-color: var(--color-dark-elements);
-  }
-
-  /* Typography Utilities - Based on style-guide.md */
-  /* 14px - Homepage Items */
-  /* .text-homepage {
-    font-size: var(--font-size-homepage); 
-  } */
-
-  /* 16px - Detail Page */
-  /* .text-detail {
-    font-size: var(--font-size-detail); 
-  }  */
-
 }
